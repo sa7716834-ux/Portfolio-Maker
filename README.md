@@ -213,5 +213,5 @@ MIT License — free to use, modify, and distribute. See [`LICENSE`](./LICENSE) 
 ---
 
 <div align="center">
-  Built with PortfolioForge · Made for developers, by developers
+  Built by Syed Saif Ali
 </div>
