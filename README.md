@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🗂️ Portfolio Maker
 
 <div align="center">
@@ -419,3 +420,33 @@ copies or substantial portions of the Software.
 Made with ❤️ by **Syed Saif Ali** — Pakistan 🇵🇰
 
 </div>
+=======
+# Portfolio Maker 🗂️
+
+A personal portfolio website built with HTML/CSS.
+
+## Features
+- 🎨 Clean and responsive design
+- 📄 Projects showcase
+- 📬 Contact section
+
+## Quick Start
+Open `Portfolio.html` in any browser — no installation required.
+
+## File Structure
+
+Portfolio/
+├── Portfolio.html    # Main portfolio page
+└── README.md         # This file
+## Tech Stack
+| Layer    | Tech            |
+|----------|-----------------|
+| Frontend | HTML / CSS      |
+| Hosting  | GitHub Pages    |
+
+## Deployment (GitHub Pages)
+Then go to repo **Settings → Pages → Deploy from main branch**
+
+---
+MIT License — built with ❤️ by Syed Saif Ali
+>>>>>>> df76a46602b031ee904e7d246145ef746a7191ec

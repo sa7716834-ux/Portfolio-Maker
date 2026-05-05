@@ -16,27 +16,27 @@
   --cyan-light: #67E8F9;
   --green: #22C55E;
   --green-dark: #16A34A;
-  --bg: #0F172A;
-  --bg2: #1E293B;
-  --bg3: #334155;
-  --text: #E2E8F0;
-  --text2: #94A3B8;
+  --bg: #F8FAFC;
+  --bg2: #FFFFFF;
+  --bg3: #EEF2FF;
+  --text: #1F2937;
+  --text2: #475569;
   --text3: #64748B;
-  --border: rgba(148,163,184,0.12);
-  --border2: rgba(148,163,184,0.2);
+  --border: rgba(15,23,42,0.08);
+  --border2: rgba(79,70,229,0.16);
   --radius: 12px;
   --radius-sm: 8px;
   --font-display: 'Syne', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-body: 'DM Sans', sans-serif;
-  --glow-indigo: 0 0 40px rgba(79,70,229,0.3);
-  --glow-cyan: 0 0 30px rgba(6,182,212,0.2);
+  --glow-indigo: 0 20px 40px rgba(79,70,229,0.12);
+  --glow-cyan: 0 16px 32px rgba(6,182,212,0.12);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: var(--bg);
+  background: radial-gradient(circle at top left, rgba(129,140,248,0.16), transparent 32%), radial-gradient(circle at top right, rgba(6,182,212,0.12), transparent 28%), var(--bg);
   color: var(--text);
   font-family: var(--font-body);
   min-height: 100vh;
@@ -62,15 +62,14 @@ body {
 nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 1rem 2rem; border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px); background: rgba(15,23,42,0.8);
+  backdrop-filter: blur(12px); background: rgba(248,250,252,0.88);
   position: sticky; top: 0; z-index: 100;
 }
 
 .nav-logo {
   font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
-  background: linear-gradient(135deg, var(--indigo-light), var(--cyan));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; letter-spacing: -0.02em;
+  color: var(--indigo);
+  letter-spacing: -0.02em;
 }
 
 .nav-logo span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); -webkit-text-fill-color: var(--cyan); font-weight: 400; display: block; letter-spacing: 0.1em; }
@@ -86,13 +85,13 @@ nav {
 .btn-ghost {
   background: transparent; color: var(--text2); border: 1px solid var(--border2);
 }
-.btn-ghost:hover { background: var(--bg2); color: var(--text); border-color: var(--border2); }
+.btn-ghost:hover { background: var(--bg2); color: var(--text); border-color: var(--indigo-light); }
 
 .btn-primary {
   background: var(--indigo); color: white;
-  box-shadow: 0 0 20px rgba(79,70,229,0.4);
+  box-shadow: var(--glow-indigo);
 }
-.btn-primary:hover { background: #5B52F0; box-shadow: 0 0 30px rgba(79,70,229,0.6); transform: translateY(-1px); }
+.btn-primary:hover { background: #5B52F0; box-shadow: 0 24px 40px rgba(79,70,229,0.18); transform: translateY(-1px); }
 
 .btn-cyan { background: var(--cyan); color: #0C1A2A; font-weight: 600; }
 .btn-cyan:hover { background: var(--cyan-light); transform: translateY(-1px); }
@@ -128,7 +127,7 @@ nav {
 
 .hero-tag {
   display: inline-flex; align-items: center; gap: 0.5rem;
-  background: rgba(79,70,229,0.15); border: 1px solid rgba(79,70,229,0.4);
+  background: rgba(79,70,229,0.08); border: 1px solid rgba(79,70,229,0.18);
   border-radius: 999px; padding: 0.3rem 1rem; font-family: var(--font-mono);
   font-size: 0.72rem; color: var(--indigo-light); letter-spacing: 0.08em;
   margin-bottom: 2rem;
@@ -140,11 +139,11 @@ nav {
 .hero h1 {
   font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem;
+  color: var(--text);
 }
 
 .hero h1 .grad {
-  background: linear-gradient(135deg, var(--indigo-light) 0%, var(--cyan) 60%, var(--green) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  color: var(--text);
 }
 
 .hero p {
@@ -196,7 +195,7 @@ nav {
 
 /* ─── AUTH MODAL ─── */
 .modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  position: fixed; inset: 0; background: rgba(15,23,42,0.22);
   backdrop-filter: blur(8px); z-index: 1000; display: none;
   align-items: center; justify-content: center;
 }
@@ -205,7 +204,7 @@ nav {
 .modal {
   background: var(--bg2); border: 1px solid var(--border2);
   border-radius: 16px; padding: 2rem; width: 420px; max-width: 90vw;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5), var(--glow-indigo);
+  box-shadow: 0 25px 60px rgba(15,23,42,0.12), var(--glow-indigo);
   animation: slideUp 0.3s ease;
 }
 
@@ -263,21 +262,21 @@ nav {
   display: flex; align-items: center; justify-content: center;
 }
 
-.preview-bg-1 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-.preview-bg-2 { background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%); }
-.preview-bg-3 { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+.preview-bg-1 { background: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 50%, #E0F2FE 100%); }
+.preview-bg-2 { background: linear-gradient(135deg, #F0FDF4 0%, #ECFEFF 50%, #F8FAFC 100%); }
+.preview-bg-3 { background: linear-gradient(135deg, #FFF7ED, #FCE7F3, #EEF2FF); }
 
 .preview-mockup {
   width: 80%; height: 90%; border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.1); overflow: hidden;
+  border: 1px solid rgba(15,23,42,0.08); overflow: hidden;
   font-size: 0.5rem; padding: 6px;
 }
-.preview-mockup .pm-header { height: 10px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-bottom: 4px; width: 60%; }
-.preview-mockup .pm-line { height: 4px; background: rgba(255,255,255,0.06); border-radius: 1px; margin-bottom: 3px; }
+.preview-mockup .pm-header { height: 10px; background: rgba(15,23,42,0.08); border-radius: 2px; margin-bottom: 4px; width: 60%; }
+.preview-mockup .pm-line { height: 4px; background: rgba(15,23,42,0.06); border-radius: 1px; margin-bottom: 3px; }
 .preview-mockup .pm-line.w70 { width: 70%; }
 .preview-mockup .pm-line.w50 { width: 50%; }
 .preview-mockup .pm-line.w80 { width: 80%; }
-.preview-mockup .pm-dot { width: 20px; height: 20px; border-radius: 50%; background: rgba(79,70,229,0.5); margin: 4px 0; }
+.preview-mockup .pm-dot { width: 20px; height: 20px; border-radius: 50%; background: rgba(79,70,229,0.35); margin: 4px 0; }
 
 .portfolio-card-body { padding: 1.25rem; }
 .portfolio-card-name { font-family: var(--font-display); font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
@@ -316,7 +315,7 @@ nav {
   font-size: 0.875rem; color: var(--text2); border: 1px solid transparent;
 }
 .step-item:hover { background: var(--bg3); color: var(--text); }
-.step-item.active { background: rgba(79,70,229,0.15); color: var(--indigo-light); border-color: rgba(79,70,229,0.3); }
+.step-item.active { background: rgba(79,70,229,0.08); color: var(--indigo); border-color: rgba(79,70,229,0.2); }
 .step-item.done { color: var(--green); }
 .step-item.done .step-num { background: var(--green); color: #0C1A2A; }
 
@@ -357,19 +356,19 @@ nav {
 .ai-row .form-group { flex: 1; margin: 0; }
 
 .ai-btn {
-  background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.3);
+  background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.24);
   color: var(--cyan); border-radius: var(--radius-sm);
   padding: 0.65rem 0.875rem; font-size: 0.75rem; font-family: var(--font-mono);
   cursor: pointer; white-space: nowrap; transition: all 0.2s; margin-top: 1.28rem;
 }
-.ai-btn:hover { background: rgba(6,182,212,0.2); border-color: var(--cyan); }
+.ai-btn:hover { background: rgba(6,182,212,0.16); border-color: var(--cyan); }
 .ai-btn.loading { opacity: 0.6; cursor: wait; }
 
 /* Skills */
 .skills-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
 .skill-tag {
   display: flex; align-items: center; gap: 0.35rem;
-  background: rgba(79,70,229,0.15); border: 1px solid rgba(79,70,229,0.3);
+  background: rgba(79,70,229,0.08); border: 1px solid rgba(79,70,229,0.18);
   border-radius: 999px; padding: 0.25rem 0.75rem;
   font-size: 0.78rem; font-family: var(--font-mono); color: var(--indigo-light);
 }
@@ -496,8 +495,8 @@ nav {
 <!-- HOME SCREEN -->
 <div id="screen-home" class="screen active">
   <div class="hero">
-    <div class="hero-tag">✦ AI-Powered Portfolio Builder</div>
-    <h1>Turn your projects into a <span class="grad">stunning portfolio</span> in minutes</h1>
+    <div class="hero-tag">AI-Powered Portfolio Builder</div>
+    <h1>Turn your projects into a stunning portfolio in minutes</h1>
     <p>Fill a form, upload projects, pick a template — we generate a polished HTML portfolio website you can download instantly.</p>
     <div class="hero-actions">
       <button class="btn btn-primary btn-xl" onclick="openAuth('signup')">Build Your Portfolio →</button>
@@ -516,32 +515,32 @@ nav {
     <div class="section-sub">No coding required. Just fill, generate, download.</div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">📝</div>
+        <div class="feature-icon">F</div>
         <h3>Smart Form Builder</h3>
         <p>Fill in your details: name, skills, education, experience, and social links — all in one guided form.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon cyan">🚀</div>
+        <div class="feature-icon cyan">P</div>
         <h3>Project Showcase</h3>
         <p>Upload up to 10 projects with descriptions, GitHub links, tech stacks, and screenshots.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon green">🤖</div>
+        <div class="feature-icon green">A</div>
         <h3>AI Writing Assistant</h3>
         <p>Stuck on your bio? Click "Generate" and our AI writes a professional about section for you.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🎨</div>
+        <div class="feature-icon">T</div>
         <h3>Template Library</h3>
         <p>Choose from 3 professionally designed templates — Midnight, Terminal, and Gradient Pro.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon cyan">⚡</div>
+        <div class="feature-icon cyan">G</div>
         <h3>One-Click Generate</h3>
         <p>Hit generate and your portfolio compiles instantly — clean HTML, CSS, and no dependencies.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon green">📦</div>
+        <div class="feature-icon green">D</div>
         <h3>Download & Deploy</h3>
         <p>Download a zip file with everything you need. Upload to GitHub Pages, Netlify, or any host.</p>
       </div>
@@ -600,7 +599,7 @@ nav {
       <!-- Step 1: Personal Info -->
       <div class="builder-step active" id="step-1">
         <div class="step-header">
-          <h2>👤 Personal Information</h2>
+          <h2>Personal Information</h2>
           <p>Tell us about yourself. This is the foundation of your portfolio.</p>
         </div>
 
@@ -660,7 +659,7 @@ nav {
             <div class="form-group" style="flex:1;margin:0">
               <textarea class="form-textarea" id="f-about" placeholder="Write a short bio about yourself, your passion for coding, and what you're looking for..."></textarea>
             </div>
-            <button class="ai-btn" onclick="aiGenerateBio()">✦ AI Generate</button>
+            <button class="ai-btn" onclick="aiGenerateBio()">AI Generate</button>
           </div>
           <div style="font-size:0.75rem;color:var(--text3);margin-top:0.35rem;font-family:var(--font-mono)">Tip: Click "AI Generate" to auto-write your bio based on your details above.</div>
         </div>
@@ -674,7 +673,7 @@ nav {
       <!-- Step 2: Skills -->
       <div class="builder-step" id="step-2">
         <div class="step-header">
-          <h2>⚡ Skills & Technologies</h2>
+          <h2>Skills & Technologies</h2>
           <p>Add your technical skills. These will be displayed as tags on your portfolio.</p>
         </div>
 
@@ -683,7 +682,7 @@ nav {
           <div class="skill-input-row">
             <input class="form-input" id="skill-input" placeholder="Type a skill and press Enter (e.g. React)" onkeydown="if(event.key==='Enter'){addSkill()}" />
             <button class="btn btn-ghost" onclick="addSkill()">Add</button>
-            <button class="ai-btn" onclick="aiSuggestSkills()" style="margin-top:0">✦ AI Suggest</button>
+            <button class="ai-btn" onclick="aiSuggestSkills()" style="margin-top:0">AI Suggest</button>
           </div>
           <div class="skills-container" id="skills-container"></div>
         </div>
@@ -722,7 +721,7 @@ nav {
       <!-- Step 3: Projects -->
       <div class="builder-step" id="step-3">
         <div class="step-header">
-          <h2>🚀 Your Projects</h2>
+          <h2>Your Projects</h2>
           <p>Showcase your work. Add at least 1 project. The more, the better!</p>
         </div>
 
@@ -739,7 +738,7 @@ nav {
       <!-- Step 4: Template -->
       <div class="builder-step" id="step-4">
         <div class="step-header">
-          <h2>🎨 Choose Your Template</h2>
+          <h2>Choose Your Template</h2>
           <p>Pick the design that best represents your style. You can always change it later.</p>
         </div>
 
@@ -763,7 +762,7 @@ nav {
 
           <div class="template-card" id="tmpl-terminal" onclick="selectTemplate('terminal')">
             <div class="template-preview preview-bg-2">
-              <div class="preview-mockup" style="font-family:monospace;font-size:0.4rem;color:#22C55E;background:rgba(0,0,0,0.5);padding:8px;">
+              <div class="preview-mockup" style="font-family:monospace;font-size:0.4rem;color:#15803D;background:rgba(255,255,255,0.8);padding:8px;">
                 <div style="color:#22C55E;margin-bottom:4px">$ whoami</div>
                 <div style="color:#94A3B8">developer</div>
                 <div style="color:#22C55E;margin-top:4px">$ ls projects/</div>
@@ -808,12 +807,12 @@ nav {
           <div id="gen-pre-state">
             <h2>🎉 Ready to Generate!</h2>
             <p>Your portfolio is configured and ready. Click the button below to generate your complete HTML portfolio website.</p>
-            <button class="btn btn-green btn-xl" style="margin-bottom:1.5rem" onclick="startGenerate()">⚡ Generate My Portfolio</button>
+            <button class="btn btn-green btn-xl" style="margin-bottom:1.5rem" onclick="startGenerate()">Generate My Portfolio</button>
             <div style="font-size:0.8rem;color:var(--text3);font-family:var(--font-mono)">Estimated time: ~3 seconds</div>
           </div>
 
           <div id="gen-loading-state" style="display:none">
-            <h2>⚡ Generating...</h2>
+            <h2>Generating...</h2>
             <div class="gen-progress">
               <div class="gen-step" id="gs-1"><div class="gen-icon">○</div> Processing your information</div>
               <div class="gen-step" id="gs-2"><div class="gen-icon">○</div> Applying template styles</div>
@@ -835,7 +834,7 @@ nav {
               <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text3);margin-bottom:0.5rem">DEPLOY OPTIONS</div>
               <div style="font-size:0.85rem;color:var(--text2);line-height:1.8">
                 🌐 <strong>GitHub Pages</strong> — Push to repo, enable Pages in settings<br>
-                ⚡ <strong>Netlify</strong> — Drag & drop the folder at netlify.com/drop<br>
+                <strong>Netlify</strong> — Drag & drop the folder at netlify.com/drop<br>
                 🔵 <strong>Vercel</strong> — Run <code style="color:var(--cyan);font-family:var(--font-mono)">vercel deploy</code> in the folder
               </div>
             </div>
@@ -1223,7 +1222,7 @@ function renderProjects() {
             <div class="form-group" style="flex:1;margin:0">
               <textarea class="form-textarea" style="min-height:70px" placeholder="What does this project do? What problem does it solve?" oninput="projects[${i}].desc=this.value">${p.desc}</textarea>
             </div>
-            <button class="ai-btn" onclick="aiImproveDesc(${i})" style="margin-top:0">✦ AI Improve</button>
+            <button class="ai-btn" onclick="aiImproveDesc(${i})" style="margin-top:0">AI Improve</button>
           </div>
         </div>
         <div class="form-group">
@@ -1271,7 +1270,7 @@ async function aiGenerateBio() {
   document.getElementById('f-about').value = bios[Math.floor(Math.random() * bios.length)];
 
   btn.classList.remove('loading');
-  btn.textContent = '✦ AI Generate';
+  btn.textContent = 'AI Generate';
   toast('Bio generated! Feel free to edit it.', 'success');
 }
 
@@ -1293,7 +1292,7 @@ async function aiSuggestSkills() {
   renderSkills();
 
   btn.classList.remove('loading');
-  btn.textContent = '✦ AI Suggest';
+  btn.textContent = 'AI Suggest';
   toast('Skills suggested! Remove ones that don\'t fit.', 'success');
 }
 
@@ -1315,7 +1314,7 @@ async function aiImproveDesc(idx) {
   renderProjects();
 
   btn.classList.remove('loading');
-  btn.textContent = '✦ AI Improve';
+  btn.textContent = 'AI Improve';
   toast('Description improved!', 'success');
 }
 
@@ -1401,9 +1400,9 @@ function downloadSaved(idx) {
 // ─── HTML GENERATOR ───
 function generateHTML(d, template) {
   const themes = {
-    midnight: { bg: '#0d1117', bg2: '#161b22', accent: '#58a6ff', accent2: '#3fb950', text: '#e6edf3', text2: '#8b949e', border: '#30363d', font: "'Segoe UI', system-ui, sans-serif" },
-    terminal: { bg: '#0d0d0d', bg2: '#141414', accent: '#00ff41', accent2: '#00cc33', text: '#ccff99', text2: '#669966', border: '#1a3a1a', font: "'Courier New', 'Fira Code', monospace" },
-    gradient: { bg: '#0f0c29', bg2: '#1a1a4e', accent: '#818CF8', accent2: '#06B6D4', text: '#E2E8F0', text2: '#94A3B8', border: 'rgba(129,140,248,0.2)', font: "'Inter', 'Helvetica Neue', sans-serif" }
+    midnight: { bg: '#F8FAFC', bg2: '#FFFFFF', accent: '#4F46E5', accent2: '#06B6D4', text: '#1F2937', text2: '#475569', border: 'rgba(15,23,42,0.08)', font: "'Segoe UI', system-ui, sans-serif" },
+    terminal: { bg: '#FAFAF9', bg2: '#FFFFFF', accent: '#15803D', accent2: '#059669', text: '#1F2937', text2: '#64748B', border: 'rgba(15,23,42,0.08)', font: "'Courier New', 'Fira Code', monospace" },
+    gradient: { bg: '#FFFDF7', bg2: '#FFFFFF', accent: '#818CF8', accent2: '#06B6D4', text: '#1F2937', text2: '#64748B', border: 'rgba(129,140,248,0.16)', font: "'Inter', 'Helvetica Neue', sans-serif" }
   };
   const t = themes[template] || themes.midnight;
 
@@ -1488,7 +1487,7 @@ function generateHTML(d, template) {
     <div class="subtitle">${d.title || 'Software Developer'}</div>
     <div class="about">${d.about || 'Passionate developer building great things.'}</div>
     <div class="meta">
-      ${d.location ? `<span>📍 ${d.location}</span>` : ''}
+      ${d.location ? `<span>${d.location}</span>` : ''}
       ${d.exp ? `<span>💼 ${d.exp}</span>` : ''}
       ${d.email ? `<span>✉️ <a href="mailto:${d.email}">${d.email}</a></span>` : ''}
     </div>
@@ -1522,7 +1521,7 @@ function generateHTML(d, template) {
     <div class="section-title">Get In Touch</div>
     <h2>Let's work together</h2>
     <p style="color:${t.text2};margin:16px 0 24px;max-width:500px;line-height:1.7">I'm currently ${d.exp === '5+ years' ? 'open to senior' : 'looking for'} opportunities. Whether you have a question or just want to say hi, my inbox is open!</p>
-    ${d.email ? `<a href="mailto:${d.email}" style="display:inline-block;background:${t.accent};color:${template==='terminal'?'#000':'#fff'};padding:12px 28px;border-radius:8px;font-weight:600;font-size:15px">Say Hello →</a>` : ''}
+    ${d.email ? `<a href="mailto:${d.email}" style="display:inline-block;background:${t.accent};color:#fff;padding:12px 28px;border-radius:8px;font-weight:600;font-size:15px">Say Hello →</a>` : ''}
   </section>
 </div>
 
